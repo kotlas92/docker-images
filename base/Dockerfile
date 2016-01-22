@@ -2,7 +2,7 @@
 #
 # VERSION               0.0.1
 
-FROM ubuntu
+FROM ubuntu:14.04
 MAINTAINER H. Wüthrich "hw@5px.ch"
 
 # Tell dpkg not to ask questions
@@ -15,7 +15,6 @@ RUN echo "force-unsafe-io" > /etc/dpkg/dpkg.cfg.d/02apt-speedup
 RUN echo "Acquire::http {No-Cache=True;};" > /etc/apt/apt.conf.d/no-cache
 
 # Make sure the package repository is up to date
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe restricted multiverse" > /etc/apt/sources.list
 RUN apt-get update && apt-get -qy install eatmydata language-pack-en # 11/09/2013
 
 # Fix locale
